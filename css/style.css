@@ -1,0 +1,172 @@
+.background {
+    fill: none;
+    pointer-events: all;
+}
+
+#states {
+    fill: #aaa;
+}
+
+#states .active {
+    display:none;
+}
+
+#state-borders {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.5px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+.county-boundary {
+    fill: gray;
+    stroke: #fff;
+    stroke-width: .5px;
+}
+
+.county-boundary:hover, .state:hover {
+    fill: orange;
+}
+
+#tooltip {
+  position: absolute;
+  display: none;
+  background: #fff;
+  box-shadow: 3px 3px 3px 0px rgb(92 92 92 / 0.5);
+  border: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px;
+  min-width: 160px;
+  color: #333;
+}
+.tooltip-title {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* .container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header header header header"
+    "pageMenu pageMenu pageMenu pageMenu"
+    "pageMenu pageMenu pageMenu pageMenu"
+    "choropleth1 choropleth1 choropleth2 choropleth2"
+    "choropleth1 choropleth1 choropleth2 choropleth2"
+    "choropleth1 choropleth1 choropleth2 choropleth2"
+    "linePlot1 linePlot1 linePlot2 linePlot2"
+    "linePlot1 linePlot1 linePlot2 linePlot2"
+    "linePlot1 linePlot1 linePlot2 linePlot2"
+    "histogram1 histogram1 histogram2 histogram2"
+    "histogram1 histogram1 histogram2 histogram2"
+    "histogram1 histogram1 histogram2 histogram2"
+    "footer footer footer footer";
+} */
+
+
+html, body , .container {
+  height: 100%;
+  margin: 0;
+}
+
+.grid-container {
+  display: grid;
+  row-gap: 10px;
+  grid-template-columns: auto auto;
+  background-color: white;
+  /* padding: 10px; */
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+}
+.grid-item2 {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+}
+.grid-item3 {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+}
+.grid-item4 {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+}
+.grid-item5{
+  grid-column: span 2;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+}
+.grid-item6{
+  grid-column: span 2;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+}
+.grid-item7{
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  font-size: 12px;
+  text-align: left;
+  align-items: center;
+}
+.grid-item8{
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  font-size: 12px;
+  text-align: right;
+  align-items: center;
+}
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+.select {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+
+
+
+
+
+
+
+  
+  
+
+
