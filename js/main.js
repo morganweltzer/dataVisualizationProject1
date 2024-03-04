@@ -4,8 +4,9 @@
 
 let data,
 choroplethMap,
-scatterplot,
-selectedValue;
+scatterplot
+
+var selectedValue;
 
 
 
@@ -13,11 +14,12 @@ Promise.all([
   d3.json('data/counties-10m.json'),
   // d3.csv('data/population.csv'),
   d3.csv('data/national_health_data.csv'),
+  // d3.csv('data/national_health_data_test.csv'),
   
 ]).then(data => {
   const geoData = data[0];
   const countyHealthData = data[1];
-  console.log(countyHealthData);
+
 
   geoData.objects.counties.geometries.forEach(d => {
 
@@ -53,7 +55,7 @@ Promise.all([
 //   console.log("selected option: ", selectedOption);
 // })
 
-const menuOptions = [
+var menuOptions = [
   { text: 'Porverty Percent', value: 'poverty_perc' },
   { text: 'Median Income', value: 'median_income' },
   { text: 'Education Less than High School', value: 'd.properties.education_less_than_high_school' },
@@ -72,30 +74,35 @@ const menuOptions = [
   { text: 'Percent with High Cholesterol', value: 'd.properties.percent_high_cholesterol' }
 ];
 
-const dropdownMenu = d3.select('#selectButton');
-dropdownMenu
-  .selectAll('option')
-  .data(menuOptions)
-  .enter()
-  .append('option')
-  .text(function(d) { return d.text; })
-  .attr('value', function(d) { 
-    return d.value; 
-  })
-  dropdownMenu.on("change", function(){
-    selectedValue = d3.select(this).property("value");
-    console.log("selected value: ", selectedValue);
-    updateChoropleth(selectedValue);
-    // choroplethMap.update(selectedValue); // Call the update method in choroplethMap.js with the selected value
-  });
-  ;
+// var allGroup = ["poverty_perc", "median_income", "education_less_than_high_school", "air_quality", "park_access", "percent_inactive", "percent_smoking", "urban_rural_status", "elderly_percentage", "number_of_hospitals", "number_of_primary_care_physicians", "percent_no_health_insurance", "percent_high_blood_pressure", "percent_coronary_heart_disease", "percent_stroke", "percent_high_cholesterol"];
 
+// d3.select("#selectButton")
+//       .selectAll('myOptions')
+//      	.data(allGroup)
+//       .enter()
+//     	.append('option')
+//       .text(function (d) { return d; }) // text showed in the menu
+//       .attr("value", function (d) { return d; }) // corresponding value returned by the button
+//   dropdownMenu.on("change", function(){
+//     selectedValue = d3.select(this).property("value");
+//     console.log("selected value: ", selectedValue);
+//     updateChoropleth(selectedValue);
+    // choroplethMap.update(selectedValue); // Call the update method in choroplethMap.js with the selected value
+  // });
+  
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  dropdownMenu.addEventListener('change', function() {
+    const selectedValue = this.value;
+    updateChoropleth(selectedValue);
+    console.log(selectedValue);
+  });
 
   const choroplethMap = new ChoroplethMap({    
     parentElement: '.grid-item',
     selectedAttribute1: 'selectedValue',
   }, geoData,
   );
+
 
   const choroplethMap2 = new SecondChoroplethMap({
     parentElement: '.grid-item2',
@@ -117,10 +124,9 @@ dropdownMenu
   }, countyHealthData,
   );
 
-
-
 })
-.catch(error => console.error(error));
+  .catch(error => console.error(error));
+
 
 
 
